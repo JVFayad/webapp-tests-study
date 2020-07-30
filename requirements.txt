@@ -1,4 +1,8 @@
+dj-database-url==0.5.0
 Django==1.11.16
+django-heroku==0.3.1
+psycopg2==2.8.5
 pytz==2020.1
 selenium==3.14.1
 urllib3==1.25.9
+whitenoise==5.1.0
