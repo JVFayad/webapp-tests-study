@@ -5,6 +5,7 @@ from django.http import HttpRequest
 
 from django.template.loader import render_to_string
 
+from lists.forms import ItemForm
 from lists.models import Item, List
 from lists.views import home_page
 
@@ -14,6 +15,10 @@ class HomePageTest(TestCase):
         response = self.client.get('/')
 
         self.assertTemplateUsed(response, 'home.html')
+
+    def test_home_page_uses_item_form(self):
+        response = self.client.get('/')
+        self.assertIsInstance(response.context['form'], ItemForm)
 
 
 class ListViewTest(TestCase):
