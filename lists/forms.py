@@ -23,3 +23,7 @@ class ItemForm(forms.models.ModelForm):
                 'required': EMPTY_ITEM_ERROR
             }
         }
+
+    def save(self, for_list):
+        self.instance.list = for_list
+        return super().save()
