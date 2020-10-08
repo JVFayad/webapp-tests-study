@@ -1,5 +1,3 @@
-from unittest import skip
-
 from selenium.webdriver.common.keys import Keys
 
 from .base import FunctionalTest
@@ -20,13 +18,17 @@ class ItemValidationTest(FunctionalTest):
         # The browser intercepts the request, and does not load the
         # list page
         self.wait_for(
-            lambda: self.browser.find_element_by_css_selector('#id_text:invalid').text
+            lambda: self.browser.find_element_by_css_selector(
+                '#id_text:invalid'
+            ).text
         )
 
         # She starts typing some text for the new item and the error disappears
         self.get_item_input_box().send_keys('Buy milk')
         self.wait_for(
-            lambda: self.browser.find_element_by_css_selector('#id_text:valid').text
+            lambda: self.browser.find_element_by_css_selector(
+                '#id_text:valid'
+            ).text
         )
 
         # And she can submit it successfully
@@ -39,13 +41,17 @@ class ItemValidationTest(FunctionalTest):
         # Again, the browser will not comply
         self.wait_for_row_in_list_table('1: Buy milk')
         self.wait_for(
-            lambda: self.browser.find_element_by_css_selector('#id_text:invalid').text
+            lambda: self.browser.find_element_by_css_selector(
+                '#id_text:invalid'
+            ).text
         )
 
         # And she can correct it by filling some text in
         self.get_item_input_box().send_keys('Make tea')
         self.wait_for(
-            lambda: self.browser.find_element_by_css_selector('#id_text:valid').text
+            lambda: self.browser.find_element_by_css_selector(
+                '#id_text:valid'
+            ).text
         )
         self.get_item_input_box().send_keys(Keys.ENTER)
         self.wait_for_row_in_list_table('1: Buy milk')
