@@ -35,14 +35,16 @@ class NewVisitorTest(FunctionalTest):
         self.wait_for_row_in_list_table('1: Buy peacock feathers')
 
         # There is still a text box inviting her to add another item. She
-        # enters "Use peacock feathers to make a fly" (Edith is very methodical)
+        # enters "Use peacock feathers to make a fly"
         inputbox = self.get_item_input_box()
         inputbox.send_keys('Use peacock feathers to make a fly')
         inputbox.send_keys(Keys.ENTER)
 
         # The page updates again, and now shows both items on her list
         self.wait_for_row_in_list_table('1: Buy peacock feathers')
-        self.wait_for_row_in_list_table('2: Use peacock feathers to make a fly')
+        self.wait_for_row_in_list_table(
+            '2: Use peacock feathers to make a fly'
+        )
 
         # Satisfied, she goes back to sleep
 
@@ -62,7 +64,7 @@ class NewVisitorTest(FunctionalTest):
 
         # Now a new user, Francis, comes along to the site.
 
-        ## We use a new browser to avoid cookies and etc
+        # We use a new browser to avoid cookies and etc
         self.browser.quit()
         self.browser = webdriver.Firefox()
 
