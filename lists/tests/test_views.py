@@ -8,7 +8,7 @@ from django.http import HttpRequest
 from django.template.loader import render_to_string
 
 from lists.forms import (
-    DUPLICATE_ITEM_ERROR, EMPTY_ITEM_ERROR, 
+    DUPLICATE_ITEM_ERROR, EMPTY_ITEM_ERROR,
     ExistingListItemForm, ItemForm
 )
 from lists.models import Item, List
@@ -55,7 +55,7 @@ class ListViewTest(TestCase):
         response = self.client.get(f'/lists/{correct_list.id}/')
 
         self.assertEqual(response.context['list'], correct_list)
-    
+
     def test_can_save_a_POST_request_to_an_existing_list(self):
         other_list = List.objects.create()
         correct_list = List.objects.create()
@@ -146,7 +146,7 @@ class NewListTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'home.html')
         expected_error = escape("You can't have an empty list item")
-        self.assertContains(response, expected_error) 
+        self.assertContains(response, expected_error)
 
     def test_invalid_list_items_arent_saved(self):
         self.client.post('/lists/new', data={'text': ''})
