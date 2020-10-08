@@ -7,7 +7,7 @@ MAX_WAIT = 10
 
 
 class NewVisitorTest(FunctionalTest):
-    
+
     def test_can_start_a_list_for_one_user(self):
         # Edith has heard about a cool new online to-do app. She goes
         # to check out its homepage
@@ -55,7 +55,7 @@ class NewVisitorTest(FunctionalTest):
         inputbox.send_keys(Keys.ENTER)
 
         self.wait_for_row_in_list_table('1: Buy peacock feathers')
-        
+
         # She notices that her list has a unique URL
         edith_list_url = self.browser.current_url
         self.assertRegex(edith_list_url, '/lists/.+')

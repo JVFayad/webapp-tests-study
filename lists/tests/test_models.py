@@ -5,10 +5,10 @@ from lists.models import Item, List
 
 
 class ItemModelTest(TestCase):
-    
+
     def test_default_text(self):
         item = Item()
-        
+
         self.assertEqual(item.text, '')
 
     def text_item_is_related_to_list(self):
@@ -64,7 +64,7 @@ class ItemModelTest(TestCase):
 
 
 class ListModelTest(TestCase):
-    
+
     def test_get_absolute_url(self):
         list_ = List.objects.create()
 
