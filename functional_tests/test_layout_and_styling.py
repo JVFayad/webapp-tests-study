@@ -1,5 +1,6 @@
 # encoding: utf-8
 from selenium.webdriver.common.keys import Keys
+
 from .base import FunctionalTest
 
 MAX_WAIT = 10

@@ -1,10 +1,8 @@
-from django.utils.html import escape
 from django.test import TestCase
+from django.utils.html import escape
 
-from lists.forms import (
-    DUPLICATE_ITEM_ERROR, EMPTY_ITEM_ERROR,
-    ExistingListItemForm, ItemForm
-)
+from lists.forms import (DUPLICATE_ITEM_ERROR, EMPTY_ITEM_ERROR,
+                         ExistingListItemForm, ItemForm)
 from lists.models import Item, List
 
 
